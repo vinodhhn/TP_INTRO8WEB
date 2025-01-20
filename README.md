@@ -1,4 +1,3 @@
-```bash
 git clone https://github.com/nicolas-sanch/correction-2025
 
 cd correction-2025
@@ -18,4 +17,3 @@ docker run --rm --interactive --tty \
 ./vendor/bin/sail npm install
 ./vendor/bin/sail npm run dev
 ``
-# TP_INTRO8WEB
