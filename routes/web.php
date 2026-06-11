@@ -6,6 +6,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReplyController;
+use App\Http\Controllers\ShopifyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,4 +53,13 @@ Route::group(['middleware' => 'auth'], function() {
     	Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     	Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     	Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+	// Shopify routes
+	Route::prefix('shopify')->name('shopify.')->group(function () {
+		Route::get('/',          [ShopifyController::class, 'dashboard'])->name('dashboard');
+		Route::get('/install',   [ShopifyController::class, 'install'])->name('install');
+		Route::get('/callback',  [ShopifyController::class, 'callback'])->name('callback');
+		Route::get('/products',  [ShopifyController::class, 'products'])->name('products');
+		Route::get('/orders',    [ShopifyController::class, 'orders'])->name('orders');
+	});
 });
